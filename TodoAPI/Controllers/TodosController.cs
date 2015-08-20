@@ -40,8 +40,10 @@ namespace TodoAPI.Controllers
 
         // PUT: api/Todos/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutTodo(int id, Todo todo)
+        [EnableCorsAttribute("*", "*", "*")]
+        public async Task<IHttpActionResult> PutTodo(Todo todo)
         {
+            int id = todo.Id;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -70,18 +72,19 @@ namespace TodoAPI.Controllers
                 }
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return Ok(todo);
         }
 
         // POST: api/Todos
         [ResponseType(typeof(Todo))]
+        [EnableCorsAttribute("*", "*", "*")]
         public async Task<IHttpActionResult> PostTodo(Todo todo)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
+            todo.Modified = DateTime.Now;
             db.Todoes.Add(todo);
             await db.SaveChangesAsync();
 

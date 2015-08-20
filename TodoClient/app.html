@@ -1,0 +1,20 @@
+<template>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">
+                    Todos
+                </a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="${row.isActive ? 'active' : ''}" repeat.for="row of router.navigation">
+                    <a href.bind="row.href">${row.title}</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container" show.bind="router.isNavigating">
+        <img class="col-md-offset-5" src="https://m2.behance.net/rendition/pm/20571743/disp/3018c061ee3747d69ece7a03df9d9b4f.gif"/>
+    </div>
+    <router-view show.bind="!router.isNavigating"></router-view>
+</template>
