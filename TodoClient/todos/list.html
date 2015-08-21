@@ -1,5 +1,9 @@
 <template>
     <div class="container">
+        <div>
+            <a route-href="route:todoCreate;" class="btn btn-primary">Create</a>
+        </div>
+        <br/>
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h1 class="panel-title">Todos List</h1>
@@ -18,10 +22,10 @@
                             <td>${todo.Title}</td>
                             <td>${todo.Note}</td>
                             <td>
-                                <a route-href="route:details; params.bind:{id:todo.Id}" class="btn btn-default">
+                                <a route-href="route:todoDetails; params.bind:{id:todo.Id}" class="btn btn-default">
                                     Details
                                 </a>
-                                <a route-href="route:edit; params.bind:{id:todo.Id}" class="btn btn-default">
+                                <a route-href="route:todoEdit; params.bind:{id:todo.Id}" class="btn btn-default">
                                     Edit
                                 </a>
                             </td>

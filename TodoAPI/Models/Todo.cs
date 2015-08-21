@@ -9,7 +9,6 @@ namespace TodoAPI.Models
 {
     public class Todo
     {
-        [Required]
         public int Id { get; set; }
 
         [Required]

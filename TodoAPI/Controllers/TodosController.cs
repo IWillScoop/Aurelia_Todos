@@ -44,6 +44,8 @@ namespace TodoAPI.Controllers
         public async Task<IHttpActionResult> PutTodo(Todo todo)
         {
             int id = todo.Id;
+            todo.Modified = DateTime.Now;
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -80,15 +82,16 @@ namespace TodoAPI.Controllers
         [EnableCorsAttribute("*", "*", "*")]
         public async Task<IHttpActionResult> PostTodo(Todo todo)
         {
+            todo.Modified = DateTime.Now;
+            todo.Created = DateTime.Now;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            todo.Modified = DateTime.Now;
             db.Todoes.Add(todo);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = todo.Id }, todo);
+            return Ok(todo);
         }
 
         // DELETE: api/Todos/5

@@ -30,4 +30,15 @@ export class TodoData {
         
         return request.send().then(response => response.content);
     }
+    
+    saveNew(todo) {
+        var request = this.http.createRequest();
+        request.asPost()
+                .withUrl(baseUrl)
+                .withHeader("Accept", "application/json")
+                .withHeader("Content-Type", "application/json")
+                .withContent(todo);
+        
+        return request.send().then(response => response.content);
+    }
 }
