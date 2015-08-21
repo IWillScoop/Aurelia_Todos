@@ -10,5 +10,4 @@ To run this project here are a few steps.
 4. Enter "jspm install -y"
 5. Start the web api using visual studio. This will seed the database
 6. Open TodoClient/index.html in your favorite browser.
-    * Gulp makes this easier. In TodoClient type in "npm install -g gulp" then once that's loaded type "gulp watch". This will host the page to http://localhost:9000.
 7. !!!If no data shows up then go to TodoClient/todos/todoData.js and change the localhost port to whatever the api is running on. 
