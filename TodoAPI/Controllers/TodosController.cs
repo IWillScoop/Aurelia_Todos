@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
@@ -14,7 +10,8 @@ using TodoAPI.Models;
 
 namespace TodoAPI.Controllers
 {
-    [EnableCorsAttribute("*", "*","*")]
+    [EnableCorsAttribute("*", "*", "*")]
+    [RoutePrefix("")]
     public class TodosController : ApiController
     {
         private TodoAPIContext db = new TodoAPIContext();
@@ -40,7 +37,6 @@ namespace TodoAPI.Controllers
 
         // PUT: api/Todos/5
         [ResponseType(typeof(void))]
-        [EnableCorsAttribute("*", "*", "*")]
         public async Task<IHttpActionResult> PutTodo(Todo todo)
         {
             int id = todo.Id;
@@ -78,8 +74,8 @@ namespace TodoAPI.Controllers
         }
 
         // POST: api/Todos
-        [ResponseType(typeof(Todo))]
         [EnableCorsAttribute("*", "*", "*")]
+        [ResponseType(typeof(Todo))]
         public async Task<IHttpActionResult> PostTodo(Todo todo)
         {
             todo.Modified = DateTime.Now;

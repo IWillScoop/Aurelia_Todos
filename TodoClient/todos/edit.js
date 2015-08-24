@@ -12,9 +12,10 @@ export class Edit {
             .ensure("todo.Title")
                 .isNotEmpty()
                 .hasMinLength(3)
-                .hasMaxLength(150)
+                .hasMaxLength(140)
             .ensure("todo.Note")
-                .hasMaxLength(500);
+                .hasMaxLength(500)
+                .canBeEmpty();
     }
 
     activate(params) {
@@ -26,6 +27,7 @@ export class Edit {
     }
     
     save() {
+        console.log(this.todo);
         this.validation.validate().then(() => {
             this.data.save(this.todo)
                 .then(todo => {

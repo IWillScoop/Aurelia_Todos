@@ -1,16 +1,22 @@
 import {TodoData} from "./todoData";
 import {inject} from "aurelia-framework";
+import {Router} from "aurelia-router";
 
-@inject(TodoData)
+@inject(TodoData, Router)
 export class List {
     
-    constructor(todoData) {
-        this.todoData = todoData;
+    constructor(todoData, router) {
+        this.data = todoData;
+        this.router = router;
     }
     
     activate() {
-       return this.todoData
+       return this.data
                     .getAll()
                     .then(todos => this.todos = todos);
+    }
+    
+    check(todo) {
+        this.data.save(todo).then(todo => {this.activate();});
     }
 }

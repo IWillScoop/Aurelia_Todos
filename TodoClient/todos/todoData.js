@@ -11,9 +11,9 @@ export class TodoData {
     
     getAll() {
         return this.http.get(baseUrl)
-                        .then(response => {
-                            return response.content;
-                        });
+            .then(response => {
+                return response.content;
+            });
     }
     
     getById(id) {
@@ -28,7 +28,9 @@ export class TodoData {
                 .withHeader("Content-Type", "application/json")
                 .withContent(todo);
         
-        return request.send().then(response => response.content);
+        return request.send().then(response => {
+            return response.content;
+        });
     }
     
     saveNew(todo) {

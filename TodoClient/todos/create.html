@@ -18,7 +18,7 @@
                             <input type="text" placeholder="Note" class="form-control" value.bind="todo.Note"/>
                         </div>
                     </div>
-                    <input type="submit" class="btn btn-primary" value="Save">
+                    <input disabled.bind="!validation.result.isValid" type="submit" class="btn btn-primary" value="Save"/>
                 </form>
             </div>
         </div>

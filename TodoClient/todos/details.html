@@ -1,8 +1,16 @@
 <template>
     <div class="container">
-        <h3>${todo.Title}</h3>
-        <div>
-        ${todo.Note}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3>Details about ${todo.Title}</h3>
+            </div>
+            <div class="panel-body">
+                <label>Title: </label><p>${todo.Title}</p>
+                <label>Note: </label><p>${todo.Note}</p>
+                
+            </div>
+        </div>
+    <div>
     </div>
         <div>
             <a route-href="route:home" class="btn btn-default">

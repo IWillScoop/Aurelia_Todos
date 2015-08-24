@@ -12,21 +12,23 @@ export class Create {
             .ensure("todo.Title")
                 .isNotEmpty()
                 .hasMinLength(3)
-                .hasMaxLength(150)
+                .hasMaxLength(140)
             .ensure("todo.Note")
-                .hasMaxLength(500);
+                .hasMaxLength(500)
+                .canBeEmpty();
     }
 
     activate(params) {
-        return "";
+        this.todo = {Title:"", Note:""};
+        return this.todo;
     }
     
     save() {
-        console.log(this.todo);
+        this.todo.IsChecked = false;
         this.validation.validate().then(() => {
             this.data.saveNew(this.todo)
                 .then(todo => {
-                   let url = this.router.generate("todoDetails", {id: todo.Id})
+                   let url = this.router.generate("details", {id: todo.Id})
                    this.router.navigate(url);
                 });
         });

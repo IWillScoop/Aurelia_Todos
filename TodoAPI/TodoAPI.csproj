@@ -172,6 +172,10 @@
     <Compile Include="Migrations\201508191607143_Initial.Designer.cs">
       <DependentUpon>201508191607143_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201508212146296_AddIsChecked.cs" />
+    <Compile Include="Migrations\201508212146296_AddIsChecked.Designer.cs">
+      <DependentUpon>201508212146296_AddIsChecked.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Todo.cs" />
     <Compile Include="Models\TodoAPIContext.cs" />
@@ -231,6 +235,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201508191607143_Initial.resx">
       <DependentUpon>201508191607143_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508212146296_AddIsChecked.resx">
+      <DependentUpon>201508212146296_AddIsChecked.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
