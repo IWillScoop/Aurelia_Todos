@@ -19,4 +19,13 @@ export class List {
     check(todo) {
         this.data.save(todo).then(todo => {this.activate();});
     }
+    
+    clearCompleted(todos) {
+        let deletedTodos = todos.filter(todo => todo.IsChecked);
+        for(let i = 0; i < deletedTodos.length; i++) {
+            this.data.deleteTodo(deletedTodos[i]);
+        }
+        this.todos = todos.filter(todo => !todo.IsChecked);
+        return this.todos;
+    }
 }

@@ -43,4 +43,17 @@ export class TodoData {
         
         return request.send().then(response => response.content);
     }
+    
+    deleteTodo(todo) {
+        let todoId = {Id: todo.Id};
+        var request = this.http.createRequest();
+        console.log(todoId);
+        request.asDelete()
+                .withUrl(`${baseUrl}/${todo.Id}`)
+                .withHeader("Accept", "application")
+                .withHeader("Content-Type", "application/json")
+                .withContent(todoId);
+        
+        return request.send().then(response => response.content);
+    }
 }

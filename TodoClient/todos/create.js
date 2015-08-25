@@ -28,8 +28,8 @@ export class Create {
         this.validation.validate().then(() => {
             this.data.saveNew(this.todo)
                 .then(todo => {
-                   let url = this.router.generate("details", {id: todo.Id})
-                   this.router.navigate(url);
+                    let url = this.router.generate("details", {id: todo.Id})
+                    this.router.navigate(url);
                 });
         });
         

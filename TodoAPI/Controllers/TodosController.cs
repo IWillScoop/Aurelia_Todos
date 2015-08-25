@@ -91,7 +91,8 @@ namespace TodoAPI.Controllers
         }
 
         // DELETE: api/Todos/5
-        [ResponseType(typeof(Todo))]
+        [AcceptVerbs("DELETE")]
+        [EnableCorsAttribute("*", "*", "*")]
         public async Task<IHttpActionResult> DeleteTodo(int id)
         {
             Todo todo = await db.Todoes.FindAsync(id);

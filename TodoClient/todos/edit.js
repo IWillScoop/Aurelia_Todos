@@ -27,7 +27,6 @@ export class Edit {
     }
     
     save() {
-        console.log(this.todo);
         this.validation.validate().then(() => {
             this.data.save(this.todo)
                 .then(todo => {

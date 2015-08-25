@@ -1,15 +1,16 @@
 <template>
     <div class="container">
         <div>
-            <a route-href="route:todoCreate;" class="btn btn-primary">Create</a>
+            <a route-href="route:todoCreate;" class="btn btn-primary" style="background-color:#ffa342; border-color:#ffa342">Create</a>
+            <button click.trigger="clearCompleted(todos)" class="btn btn-danger pull-right">Clear Completed</button>
         </div>
         <br/>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h1 class="panel-title">Todos List</h1>
+        <div class="panel panel-default" style="border-color: #ffa342;">
+            <div class="panel-heading"  style="background-color: #ffa342;">
+                <h1 style="color:white" class="panel-title">Todos List</h1>
             </div>
             <div class="panel-body">
-                <table class="table table-hover">
+                <table class="table">
                     <thead>
                         <tr>
                             <th>Title</th>
@@ -19,7 +20,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr repeat.for="todo of todos" style="${todo.IsChecked ? 'background:#D6E4F1;' : ''}" >
+                        <tr value.bind="todos" repeat.for="todo of todos" style="${todo.IsChecked ? 'background:rgba(255,163,66, .5);' : ''}" >
                             <td class="box">${todo.Title}</td>
                             <td class="box hidden-xs">${todo.Note}</td>
                             <td><input checked.bind="todo.IsChecked" type="checkbox" click.trigger="$parent.check(todo)" style="width:20%;" class="form-control"/></td>
